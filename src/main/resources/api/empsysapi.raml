@@ -1,0 +1,18 @@
+#%RAML 1.0
+title: empsysapi
+baseUri: http://localhost:8081/employees
+version: v1
+
+
+/emp:
+  get:
+    description: "Retrieve emp ids"
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              {
+                "empid": "22",
+                "status" : "ACTIVE"
+              }
