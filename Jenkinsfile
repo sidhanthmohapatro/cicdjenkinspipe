@@ -31,8 +31,11 @@ pipeline {
   }
    post {
         always {
-              recipientProviders: [developers(), requestor()],
-              to: 'sidhanth488@gmail.com'
+      emailext attachLog: true,
+               recipientProviders: [developers(), requestor()],
+               body: 'Check console output at $BUILD_URL to view the results.',
+               subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!'
+               to: 'sidhanth488@gmail.com'
         }
     }
 }
